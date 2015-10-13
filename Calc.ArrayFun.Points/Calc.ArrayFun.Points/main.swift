@@ -89,6 +89,7 @@ let averageArray = { (numbers: [Int]) -> Int in
     return addArray(numbers) / numbers.count
 }
 
+// Completes given math (array) operation with given Int array
 func mathOperationArray(operation : ([Int]) -> Int, numbers : [Int]) -> Int
 {
     return operation(numbers)
@@ -102,3 +103,65 @@ println(mathOperationArray(averageArray, [1, 10, 100, 1000]))
 
 // Points
 
+// Adds given points together
+func addPoints(point1 : (x : Double?, y : Double?), point2 : (x : Double?, y : Double?)) -> (Double, Double)
+{
+    var resultx : Double = 0
+    var resulty : Double = 0
+    
+    if (point1.x != nil)
+    {
+        resultx += point1.x!
+    }
+    
+    if (point2.x != nil)
+    {
+        resultx += point2.x!
+    }
+    
+    if (point1.y != nil)
+    {
+        resulty += point1.y!
+    }
+    
+    if (point2.y != nil)
+    {
+        resulty += point2.y!
+    }
+    
+    return (resultx, resulty)
+}
+
+// Subtracts given points from each other
+func subtractPoints(point1 : (x : Double?, y : Double?), point2 : (x : Double?, y : Double?)) -> (Double, Double)
+{
+    var resultx : Double = 0
+    var resulty : Double = 0
+    
+    if (point1.x != nil)
+    {
+        resultx -= point1.x!
+    }
+    
+    if (point2.x != nil)
+    {
+        resultx -= point2.x!
+    }
+    
+    if (point1.y != nil)
+    {
+        resulty -= point1.y!
+    }
+    
+    if (point2.y != nil)
+    {
+        resulty -= point2.y!
+    }
+    
+    return (resultx, resulty)
+}
+
+// Test cases
+println(addPoints((2, 4), (3, 5)))
+println(subtractPoints((1.5, 3.5), (3.5, 5.5)))
+println(addPoints((5, 10), (nil, 3)))
