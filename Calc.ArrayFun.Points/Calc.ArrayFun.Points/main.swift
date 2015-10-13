@@ -40,12 +40,65 @@ func mathOperation(operation : (Double, Double) -> Double, num1 : Int, num2: Int
     return operation(Double(num1), Double(num2));
 }
 
+// Test cases
 println(mathOperation(add, 23, 41))
 println(mathOperation(subtract, 58, 19))
 println(mathOperation(multiply, 3, 9))
 println(mathOperation(divide, 70, 4))
 
 // Array Fun
+
+// Adds all given Ints together
+let addArray = { (numbers: [Int]) -> Int in
+    var result = 0
+    
+    for var index = 0; index < numbers.count; index++
+    {
+        result += numbers[index]
+    }
+    
+    return result
+}
+
+// Multipies all given Ints together
+let multiplyArray = { (numbers: [Int]) -> Int in
+    var result = 0
+    
+    for var index = 0; index < numbers.count; index++
+    {
+        if (index == 0)
+        {
+            result = numbers[index]
+        }
+        else
+        {
+            result *= numbers[index]
+        }
+    }
+    
+    return result
+}
+
+// Counts given number of Ints
+let countArray = { (numbers: [Int]) -> Int in
+    return numbers.count
+}
+
+// Finds average of given Ints
+let averageArray = { (numbers: [Int]) -> Int in
+    return addArray(numbers) / numbers.count
+}
+
+func mathOperationArray(operation : ([Int]) -> Int, numbers : [Int]) -> Int
+{
+    return operation(numbers)
+}
+
+// Test cases
+println(mathOperationArray(addArray, [1, 2, 3, 4, 5]))
+println(mathOperationArray(multiplyArray, [2, 4, 6]))
+println(mathOperationArray(countArray, [1000, 1000, 1000, 1000, 1000]))
+println(mathOperationArray(averageArray, [1, 10, 100, 1000]))
 
 // Points
 
